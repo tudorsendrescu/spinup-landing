@@ -1,73 +1,74 @@
-# React + TypeScript + Vite
+# SpinUp — Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> **Clone the repo. We handle the rest.**
+> A concept landing page for a fictional B2B SaaS developer tool — written and built end to end as a spec/portfolio piece.
 
-Currently, two official plugins are available:
+**🔗 Live site → [spinup-landing.vercel.app](https://spinup-landing.vercel.app/)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+![SpinUp landing page](./public/og.png)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## About this project
 
-## Expanding the ESLint configuration
+SpinUp is an imagined developer tool that automates local environment setup — `.env` configuration, dependency installs, Prisma migrations, and database seeding — turning a multi-day onboarding into a 14-second command.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+The product doesn't exist. The point of the project is to demonstrate, in one cohesive piece, the two things I do:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Copywriting** — direct-response, B2B SaaS copy aimed at a technical audience (Lead Developers, Engineering Managers, CTOs). Punchy, logical, no marketing fluff. Built around a clear problem → agitation → solution → proof → CTA structure.
+- **Frontend engineering** — a fast, fully responsive, dark-mode landing page built from scratch in React, with custom animations and a strict, self-imposed design system.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## My role
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+I designed the brand voice, wrote **100% of the copy**, defined the visual design system, and built the entire front end. Sole author.
+
+## Highlights
+
+- **Animated before/after terminal** — a split-screen demo that types out the painful manual setup vs. the one-command SpinUp flow, with a replay control.
+- **Syntax-highlighted config block** with a working copy-to-clipboard button.
+- **Scroll-reveal animations** that respect `prefers-reduced-motion`.
+- **Custom social share card** (Open Graph) generated programmatically.
+- **Strict design system** — hairline borders, a single accent color, two intentional glows, and zero gratuitous shadows or gradients.
+
+## Tech stack
+
+| | |
+|---|---|
+| Framework | React 19 + TypeScript |
+| Build tool | Vite |
+| Styling | Tailwind CSS v4 (with inline-styled typography for precise control) |
+| Icons | lucide-react |
+| Share-card generation | sharp (SVG → PNG) |
+| Hosting | Vercel (auto-deploy on push) |
+
+## Design system
+
+- **Type:** Inter (UI / copy) + JetBrains Mono (code, terminals, labels, stats)
+- **Palette:** near-black `#080B0F` canvas, `#00E87D` brand green, layered grays for hierarchy
+- **Rules:** hairline `1px` borders, max `12px` radius on panels, color-only hover transitions, dark mode only — no light theme
+
+## Run locally
+
+```bash
+git clone https://github.com/tudorsendrescu/spinup-landing.git
+cd spinup-landing
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Other scripts:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run build     # production build
+npm run preview   # preview the production build locally
+npm run og        # regenerate the social share card (public/og.png)
 ```
+
+## Author
+
+**Sendrescu Tudor** — Copywriter & Developer
+[github.com/tudorsendrescu](https://github.com/tudorsendrescu)
+
+---
+
+*SpinUp is a fictional product created for portfolio purposes. It is not a real service and is not affiliated with any company.*
